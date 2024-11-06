@@ -1,0 +1,112 @@
+/* Estilos generales */
+body, html {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Georgia', serif;
+    background-color: #000;
+    color: #fff;
+    position: relative;
+}
+
+/* Pantalla de carga */
+.loading-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.loader-bar {
+    width: 60%;
+    height: 5px;
+    background: #444;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.loader {
+    width: 0;
+    height: 100%;
+    background-color: #e63946;
+    animation: load 2s ease forwards;
+}
+
+@keyframes load {
+    to { width: 100%; }
+}
+
+/* Fondo de estrellas */
+.starry-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #000 url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+    animation: twinkling 3s infinite ease-in-out;
+    z-index: 0;
+    opacity: 0.6;
+}
+
+@keyframes twinkling {
+    0% { opacity: 0.8; }
+    50% { opacity: 0.5; }
+    100% { opacity: 0.8; }
+}
+
+/* Contenido principal */
+.content {
+    display: none;
+    text-align: center;
+    z-index: 1;
+}
+
+/* Corazones animados */
+.heart {
+    position: absolute;
+    font-size: 25px;
+    color: #e63946;
+    animation: float 4s ease-in-out infinite, fadeIn 1.5s forwards;
+    animation-delay: 1.5s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(20deg); }
+}
+
+/* Animación de la aparición */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Mensaje romántico */
+.message {
+    font-size: 1.2rem;
+    color: #f8f9fa;
+    margin-top: 20px;
+    opacity: 0;
+    animation: fadeInMessage 2s ease-in 3s forwards;
+    z-index: 1;
+}
+
+@keyframes fadeInMessage {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@media (max-width: 600px) {
+    .message {
+        font-size: 1rem;
+    }
+}
